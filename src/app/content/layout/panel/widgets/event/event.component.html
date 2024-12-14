@@ -1,0 +1,39 @@
+
+<!--    MOBILE / DEFAULT        SM MIN 640 PX           MD MIN 768 PX           LG MIN 1024 PX          XL MIN 1280 PX          2XL MIN 1536 PX -->
+
+<div class="
+
+        relative
+
+        inline-block
+
+        py-1
+        px-2.5
+
+        min-w-44
+        max-w-full
+
+        bg-gradient-to-br 
+
+        backdrop-filter backdrop-blur-[40px]
+
+        border-[1px]
+        border-l-[6px]
+
+        rounded-md
+
+        text-light-100
+
+        font-lato
+
+        overflow-hidden
+
+        text-clip ...
+
+    " [ngClass]="[getStatus]">
+
+    <p class="tracking-wide"><strong>{{getPrefix}}</strong> {{getValue}}</p>
+
+    <p class="text-light-200/80 text-[12px]">{{getTime}} - {{getDate}}</p>
+
+</div>

@@ -1,0 +1,59 @@
+
+<!--    MOBILE / DEFAULT        SM MIN 640 PX           MD MIN 768 PX           LG MIN 1024 PX          XL MIN 1280 PX          2XL MIN 1536 PX -->
+
+<div class="
+
+        relative
+
+        grid
+        grid-cols-[1fr_auto]
+
+        mb-3
+
+        py-1.5
+        px-2
+
+        text-start
+
+        text-sm
+        font-normal
+        font-lato
+
+        backdrop-filter backdrop-blur-[1px]
+
+        border-light-300
+        border-[1px]
+        rounded-md
+
+    ">
+
+    <div class="h-full content-center tracking-widest font-semibold text-light-200 font-chakra opacity-70">
+        LEVEL {{getLevel}}
+    </div>
+
+    <div class="">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#CED7F2" class="size-5 opacity-70">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </svg>                  
+    </div>
+
+</div>
+
+<ul class="
+
+        relative
+
+        grid
+        grid-cols-1
+        gap-y-3
+
+        h-auto
+
+    ">
+
+    <li *ngFor="let item of getRooms">
+        <app-room-status />
+    </li>
+
+</ul>
+

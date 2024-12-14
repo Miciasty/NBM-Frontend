@@ -1,0 +1,156 @@
+
+<!--    MOBILE / DEFAULT        SM MIN 640 PX           MD MIN 768 PX           LG MIN 1024 PX          XL MIN 1280 PX          2XL MIN 1536 PX -->
+
+<div class="
+
+        relative
+
+        w-full
+        h-full
+
+        grid
+        grid-cols-[1fr_auto]
+
+        rounded-b-md
+
+        overflow-hidden
+
+    ">
+
+    <div class="
+
+        relative
+
+        grid
+
+        content-start
+    
+        bg-gradient-to-br from-dark-900/40 to-dark-800/40
+        
+        p-5
+
+        gap-2
+
+        overflow-y-scroll
+        overflow-x-hidden
+
+        [&::-webkit-scrollbar]:w-[0px]
+
+        [&::-webkit-scrollbar-track]:bg-gray-100
+        [&::-webkit-scrollbar-thumb]:bg-gray-300
+        dark:[&::-webkit-scrollbar-track]:bg-neutral-700
+        dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500
+    
+        ">
+        
+        <div class="absolute w-full h-full top-0 left-0" style="
+            background: 
+                repeating-linear-gradient(to right, #282D4480, #0D1026AA 1px, transparent 1px, transparent 176px),
+                repeating-linear-gradient(to bottom, #282D44AA, #0d102680 1px, transparent 1px, transparent 56px);
+            background-size: 176px 56px;
+            background-position: 20px 0px;
+        "></div>
+
+        <widget-event setStatus="success" setValue="Door Opened" setTime="12:14" setDate="24 May 2024"/>
+
+        <widget-event setStatus="error" setPrefix="High trafiic:" setValue="477 events in the last 8 seconds" setTime="13:42" setDate="24 May 2024" />
+
+        <widget-event setStatus="warning" setPrefix="Critical load:" setValue="836 events in the last 5 seconds" setTime="14:29" setDate="24 May 2024" />
+
+        <widget-event setStatus="warning" setValue="Forced Close activated by Administrator" setTime="18:10" setDate="24 May 2024" />
+
+        <widget-event setStatus="error" setValue="Lockdown starts in 2 seconds" setTime="18:12" setDate="24 May 2024" />
+    
+    </div>
+
+    <div class="
+
+        relative
+
+        flex
+        flex-wrap
+
+        gap-divide-y-4
+
+        gap-divide-light-300
+
+        content-start
+        justify-end
+
+        w-72
+        h-full
+    
+        bg-gradient-to-br from-dark-900/50 to-dark-800/70
+
+        border-light-300
+        border-l-[1px]
+        
+        p-5
+
+        font-chakra
+        font-semibold
+
+        overflow-y-scroll
+
+        [&::-webkit-scrollbar]:w-[0px]
+
+        [&::-webkit-scrollbar-track]:bg-gray-100
+        [&::-webkit-scrollbar-thumb]:bg-gray-300
+        dark:[&::-webkit-scrollbar-track]:bg-neutral-700
+        dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500
+        
+        ">
+
+        <div class="w-full flex flex-wrap gap-2.5">
+            <div class="w-full grid grid-cols-2 gap-2.5 text-center">
+                <widget-button value="OPEN" gradient="bg-gradient-to-br from-light-300/40 to-light-300/40 hover:to-success-400/70"/>
+    
+                <widget-button value="CLOSE" gradient="bg-gradient-to-br from-light-300/40 to-light-300/40 hover:to-success-400/70"/>
+
+                <widget-button value="UNLOCK" gradient="bg-gradient-to-br from-light-300/40 to-light-300/40 hover:to-info-400/70"/>
+    
+                <widget-button value="LOCK" gradient="bg-gradient-to-br from-info-500 to-info-400 hover:to-info-400/70"/>
+            </div>
+        </div>
+
+        <div class="w-full text-center grid grid-cols-[auto_1fr] gap-2.5 gap-x-5">
+            <p class="text-start content-center font-normal font-lato tracking-wider text-light-100">
+                Scheduled Unlock
+            </p>
+
+            <widget-button value="07:00" gradient="font-lato font-normal bg-gradient-to-br from-light-300/40 to-light-300/40 hover:to-light-200/15"/>
+        
+            <p class="text-start content-center font-normal font-lato tracking-wider text-light-100">
+                Scheduled Lock
+            </p>
+
+            <widget-button value="16:00" gradient="font-lato font-normal bg-gradient-to-br from-light-300/40 to-light-300/40 hover:to-light-200/15"/>
+        
+        </div>
+
+        <div class="w-full flex flex-wrap gap-2.5">
+            <div class="w-full grid grid-cols-2 gap-2.5 text-center">
+                <widget-button value="Add" gradient="bg-gradient-to-br from-light-300/40 to-light-300/40 hover:to-light-200/15"/>
+    
+                <widget-button value="Delete" gradient="bg-gradient-to-br from-light-300/40 to-light-300/40 hover:to-light-200/15"/>
+            </div>
+        </div>
+
+        <div class="w-full flex flex-wrap gap-2.5">
+            <div class="w-full text-center">
+                <widget-button value="RESET ALARM" gradient="bg-gradient-to-br from-error-500 to-error-400 hover:to-error-400/70"/>
+            </div>
+            <div class="w-full text-center">
+                <widget-button value="LOCKDOWN" gradient="bg-gradient-to-br from-error-500 to-error-400 hover:to-error-400/70"/>
+            </div>
+        </div>
+
+        <div class="w-full flex flex-wrap gap-2.5">
+            <div class="w-full text-center">
+                <widget-button value="MAINTANCE MODE" gradient="bg-gradient-to-br from-ascent to-secondary hover:to-secondary/70"/>
+            </div>
+        </div>
+    
+    </div>
+
+</div>

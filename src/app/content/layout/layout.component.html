@@ -1,0 +1,31 @@
+
+<!--    MOBILE / DEFAULT        SM MIN 640 PX           MD MIN 768 PX           LG MIN 1024 PX          XL MIN 1280 PX          2XL MIN 1536 PX -->
+
+<div class="
+
+    relative
+
+    grid
+    grid-cols-5
+    grid-rows-6
+
+    gap-4
+
+    grid-flow-row-dense
+
+    w-full
+    h-full
+
+    p-6
+
+    overflow-hidden
+
+    ">
+
+    <app-panel
+        *ngFor="let p of getPanels"
+        [ngClass]="p.classes"
+        (closed)="removePanel(p.id)">
+    </app-panel>
+
+</div>

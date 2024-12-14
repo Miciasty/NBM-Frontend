@@ -1,0 +1,81 @@
+
+<!--    MOBILE / DEFAULT        SM MIN 640 PX           MD MIN 768 PX           LG MIN 1024 PX          XL MIN 1280 PX          2XL MIN 1536 PX -->
+
+<div cdkDrag class="
+
+        z-20
+
+        w-full
+        h-full
+
+        relative
+
+        grid
+        grid-rows-[auto_1fr]
+
+        text-start
+
+        text-sm
+        font-normal
+        font-lato
+
+        bg-light-300
+        bg-opacity-30
+
+        backdrop-filter backdrop-blur-[4px]
+
+        border-light-300
+        border-[1px]
+        rounded-md
+        
+    ">
+
+    <div cdkDragHandle class="
+
+        relative
+
+        grid
+        grid-cols-[1fr_auto]
+    
+        w-full
+
+        py-3
+        px-4
+
+        font-chakra
+        font-semibold
+
+        tracking-wider
+
+        bg-light-300
+        bg-opacity-15
+
+        border-light-300
+        border-b-[1px]
+
+        rounded-t-md
+
+        ">
+        
+        <div class="border-l-2 pl-2.5 text-base border-light-200 content-center">DOOR CONTROLLER</div>
+
+        <div class="flex">
+            <p class="pr-4 content-center">KITCHEN_02</p>
+            <p class="border-r-2 border-light-200 pr-5 mr-4 content-center">
+                <span class="inline-block text-xs py-0.5 px-2.5 bg-gradient-to-br from-info-500/70 to bg-info-400/70 rounded-md">
+                    LOCKED
+                </span>
+            </p>
+
+            <div (click)="onClose()" class="cursor-pointer hover:opacity-60 transition-opacity">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>              
+            </div>
+        </div>
+
+    </div>
+
+    <widget-terminal class="overflow-hidden" />
+
+</div>
