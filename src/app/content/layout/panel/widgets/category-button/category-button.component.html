@@ -2,13 +2,15 @@
 
 <div class="
 
+        group
+
         relative
 
         w-full
         h-full
 
         grid
-        grid-rows-[auto_auto]
+        grid-flow-row
 
         gap-3
 
@@ -22,7 +24,9 @@
 
         text-light-200/60
 
-    ">
+        cursor-pointer
+
+    " (click)="onButtonClick()" >
 
     <div class="
 
@@ -30,6 +34,9 @@
 
         text-light-100
         text-2xl
+
+        truncate 
+        line-clamp-1
         
         ">
             {{getTitle}}
@@ -45,12 +52,25 @@
 
         text-light-200/60
         text-base
+
+        line-clamp-2    lg:line-clamp-none
         
         ">
             {{getDescription}}
     </div>
 
-    <div class="absolute z-10 w-[80%] aspect-square top-[-70%] right-[-45%]">
+    <div class="
+
+        absolute 
+        z-10 
+        w-[80%]             group-hover:w-[85%]
+        aspect-square 
+        top-[-70%]          group-hover:top-[-60%]
+        right-[-45%]        group-hover:right-[-60%]
+
+        duration-200
+        
+        ">
         <svg class="fill-none aspect-square" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
 
             <defs>
@@ -72,7 +92,18 @@
         </svg>
     </div>
 
-    <div class="absolute z-10 w-[80%] aspect-square bottom-[-90%] right-[-30%]">
+    <div class="
+
+        absolute 
+        z-10 
+        w-[80%]             group-hover:w-[85%]
+        aspect-square 
+        bottom-[-90%]       group-hover:bottom-[-88%]
+        right-[-30%]        group-hover:right-[-25%]
+
+        duration-[250ms]
+        
+        ">
         <svg class="fill-none aspect-square" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <linearGradient

@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Room } from 'src/app/entity/room';
+import { CategoryDataService } from 'src/app/service/content/category-data.service';
+import { LayoutService } from 'src/app/service/content/layout.service';
+import { RoomService } from 'src/app/service/status-bar/room.service';
 
 @Component({
   selector: 'app-room-status',
@@ -7,25 +11,41 @@ import { Component } from '@angular/core';
 })
 export class RoomStatusComponent {
 
-  private roomName: string = "Kitchen_02";
-  private level: string = "Level 1";
-  private sector: string = "Sector A";
-  private status: string = "ONLINE";
+  	constructor( private categoryService: CategoryDataService, private layoutService: LayoutService, private roomService: RoomService ) {}
 
-  public get getRoomName(): string {
-    return this.roomName;
-  }
+  	@Input() room: Room;
 
-  public get getLevel(): string {
-    return this.level;
-  }
+  	public onButtonClick(): void {
 
-  public get getSector(): string {
-    return this.sector;
-  }
+		this.roomService.setSelectedRoom(this.room);
 
-  public get getStatus(): string {
-    return this.status;
-  }
+		this.categoryService.getDataByType('map').subscribe((data) => {
+			if (data.panels) {
+			  	this.layoutService.replacePanels(data.panels);
+			}
+		});
+
+	}
+
+
+  	public get getRoomName(): string {
+    	return this.room?.name ?? 'Unknown';
+  	}	
+
+  	public get getLevel(): number {
+    	return this.room?.level ?? '-1';
+  	}
+
+  	public get getSector(): string {
+    	return this.room?.sector ?? 'Unknown';
+  	}
+
+  	public get getStatus(): number {
+    	return this.room?.status ?? '0';
+  	}
+
+  	public get getConnection(): string {
+    	return "ONLINE";
+  	}
 
 }

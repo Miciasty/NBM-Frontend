@@ -42,6 +42,14 @@ export class PanelComponent {
 		return this.type;
 	}
 
+	public get getRows(): string {
+		if (this.bar == "hidden") {
+			return "grid-rows-[auto_1fr]";
+		} else {
+			return "grid-rows-[auto_auto_1fr]";
+		}
+	}
+
 	/** --- --- --- --- **/
 
 	@ViewChild('widget', { read: ViewContainerRef, static: true})
@@ -82,7 +90,6 @@ export class PanelComponent {
 
 		if (this.currentComponentRef.instance && 'type' in this.currentComponentRef.instance) {
 			this.currentComponentRef.instance.type = type;
-			console.log('Assigned type to UsageGraphComponent:', type);
 		}
 
 		const element = this.currentComponentRef.location.nativeElement;

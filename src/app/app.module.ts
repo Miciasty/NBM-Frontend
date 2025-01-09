@@ -20,6 +20,7 @@ import { EventComponent } from './content/layout/panel/widgets/event/event.compo
 import { QualityGraphComponent } from './content/layout/panel/widgets/quality-graph/quality-graph.component';
 import { UsageGraphComponent } from './content/layout/panel/widgets/usage-graph/usage-graph.component';
 import { CategoryButtonComponent } from './content/layout/panel/widgets/category-button/category-button.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { CategoryButtonComponent } from './content/layout/panel/widgets/category
     BrowserModule,
     AppRoutingModule,
     DragDropModule,
+    BrowserAnimationsModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]

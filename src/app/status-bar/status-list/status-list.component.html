@@ -1,14 +1,11 @@
 
 <!--    MOBILE / DEFAULT        SM MIN 640 PX           MD MIN 768 PX           LG MIN 1024 PX          XL MIN 1280 PX          2XL MIN 1536 PX -->
 
-<app-room-status />
+<app-list-category 
 
-<app-room-status />
+    *ngFor="let group of getAllRooms"
 
-<app-room-status />
+    [level]="group.level"
+    [rooms]="group.rooms"
 
-<app-list-category />
-
-<app-list-category />
-
-<app-room-status />
+/>

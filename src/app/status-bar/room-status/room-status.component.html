@@ -30,20 +30,20 @@
         
     ">
 
-    <div class="text-light-100">
+    <div class="text-light-100 cursor-pointer" (click)="onButtonClick()"> 
         {{getRoomName}}
     </div>
 
     <div class=" text-light-100 text-end ">
-        {{getLevel}}
+        Level {{getLevel}}
     </div>
 
     <div class="text-light-200">
-        {{getSector}}
+        Sector {{getSector}}
     </div>
 
     <div class="text-end font-semibold text-success-500">
-        {{getStatus}}
+        {{getConnection}}
     </div>
         
  </div>

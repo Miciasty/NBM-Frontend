@@ -45,6 +45,7 @@
             leading-4
 
             text-light-100
+            line-clamp-1
         
         "> {{getTitle}} </h2>
 
@@ -77,16 +78,16 @@
 
                     truncate
                 ">
-                    <span class="font-medium bg-gradient-to-br inline-block text-transparent bg-clip-text" [ngClass]="getGradient">
+                    <span class="font-medium bg-gradient-to-br inline-block text-transparent bg-clip-text truncate line-clamp-1" [ngClass]="getGradient">
                         {{metric.value}}
                     </span>
-                    <span class="text-[32px] leading-[44px] content-end font-normal tracking-wider">
+                    <span class="text-[32px] leading-[44px] content-end font-normal tracking-wider truncate line-clamp-1">
                         {{metric.unit}}
                     </span>
                     
                 </div>
 
-                <div class="text-base leading-7">
+                <div class="text-base leading-7 truncate line-clamp-1">
                     {{metric.description}}
                 </div>
 
@@ -112,7 +113,7 @@
     
     ">
     
-        <div *ngFor="let metric of getSecondaryMetrics" class="w-full truncate ">
+        <div *ngFor="let metric of getSecondaryMetrics" class="w-full truncate line-clamp-1">
             <div class="flex gap-x-2 text-2xl text-light-100 font-chakra">
                 <span class="font-medium">
                     {{metric.value}}

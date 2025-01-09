@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CategoryDataService } from 'src/app/service/content/category-data.service';
 import { LayoutService } from 'src/app/service/content/layout.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { LayoutService } from 'src/app/service/content/layout.service';
 })
 export class NavButtonComponent {
 
-	constructor(private layoutService: LayoutService) {}
+	constructor(private categoryService: CategoryDataService, private layoutService: LayoutService) {}
 
 	private value: string = "m6.72 5.66 11.62 11.62A8.25 8.25 0 0 0 6.72 5.66Zm10.56 12.68L5.66 6.72a8.25 8.25 0 0 0 11.62 11.62ZM5.105 5.106c3.807-3.808 9.98-3.808 13.788 0 3.808 3.807 3.808 9.98 0 13.788-3.807 3.808-9.98 3.808-13.788 0-3.808-3.807-3.808-9.98 0-13.788Z";
 	private value2: string = "";
@@ -71,74 +72,17 @@ export class NavButtonComponent {
 
 	/** --- --- --- --- --- **/
 
-	private modules = [
-		{
-			name: 'home',
-			panels: [
-				{ id: 'home', classes: 'row-span-2 col-span-3', isBar: false},
-				{ id: 'insight', classes: 'row-span-2 col-span-3', isBar: false},
-				{ id: 'safety', classes: 'row-span-2 col-span-3', isBar: false},
-				{ id: 'map', classes: 'row-span-2 col-span-3', isBar: false},
-				{ id: 'access', classes: 'row-span-2 col-span-3', isBar: false},
-				{ id: 'alerts', classes: 'row-span-2 col-span-3', isBar: false},
-				
-			],
-		},{
-			name: 'insight',
-			panels: [
-				{ id: 'energy', classes: 'row-span-2 col-span-3', isBar: false},
-				{ id: 'water', classes: 'row-span-2 col-span-3', isBar: false},
-				{ id: 'air', classes: 'row-span-2 col-span-3', isBar: false},
-			],
-		},{
-			name: 'safety',
-			panels: [
-				{ id: '', classes: 'row-span-2 col-span-3', isBar: true},
-			],
-		},
-			/** --- --- --- --- --- --- --- --- --- --- **/
-		{
-			name: 'map',
-			panels: [
-				{ id: 'terminal', classes: 'row-span-3 col-span-3', isBar: true},
-			],
-		},{
-			name: 'access',
-			panels: [
-				{ id: '', classes: 'row-span-2 col-span-3', isBar: true},
-			],
-		},{
-			name: 'alerts',
-			panels: [
-				{ id: '', classes: 'row-span-2 col-span-3', isBar: true},
-			],
-		},
-		/** --- --- --- --- --- --- --- --- --- --- --- --- **/
-		{
-			name: 'documents',
-			panels: [
-				{ id: '', classes: 'row-span-2 col-span-3', isBar: true},
-			],
-		},{
-			name: 'community',
-			panels: [
-				{ id: '', classes: 'row-span-2 col-span-3', isBar: true},
-			],
-		},{
-			name: 'settings',
-			panels: [
-				{ id: '', classes: 'row-span-2 col-span-3', isBar: true},
-			],
-		},
-	]
+	
 
 	public onButtonClick(): void {
 
-		const module = this.modules.find(m => m.name === this.name);
-		if (module) {
-			this.layoutService.replacePanels(module.panels);
-		} else {
-			console.error('Module "${moduleName}" not found.')
-		}
+		this.categoryService.getDataByType(this.name).subscribe((data) => {
+			if (data.panels) {
+				this.layoutService.replacePanels(data.panels);
+			} else {
+				console.error(`No panels found for module: ${this.name}.`);
+			}
+		})
+
 	}
 }

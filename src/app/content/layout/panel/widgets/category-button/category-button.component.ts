@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CategoryDataService } from 'src/app/service/content/category-data.service';
+import { LayoutService } from 'src/app/service/content/layout.service';
 
 @Component({
   selector: 'app-category-button',
@@ -18,7 +19,7 @@ export class CategoryButtonComponent {
 	private color3: string = '#FFF';
 	private color4: string = '#FFF';
 
-	constructor(private categoryService: CategoryDataService) {}
+	constructor(private categoryService: CategoryDataService, private layoutService: LayoutService) {}
 
 	ngOnInit(): void {
 		this.loadData();
@@ -33,6 +34,18 @@ export class CategoryButtonComponent {
 			this.color3 = data.color3;
 			this.color4 = data.color4;
 		})
+	}
+
+	public onButtonClick(): void {
+
+		this.categoryService.getDataByType(this.type).subscribe((data) => {
+			if (data.panels) {
+				this.layoutService.replacePanels(data.panels);
+			} else {
+				console.error(`No panels found for module: ${this.type}.`);
+			}
+		})
+
 	}
 
 	/** --- --- --- --- --- **/

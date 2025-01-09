@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Room } from 'src/app/entity/room';
 
 @Component({
   selector: 'app-list-category',
@@ -7,10 +8,9 @@ import { Component } from '@angular/core';
 })
 export class ListCategoryComponent {
 
-	private level: number = 1;
-	
-	private n: number = 1;
-	private rooms = Array.from({length: this.n});
+	@Input() level: number;
+  	@Input() rooms: Room[] = [];
+
 
 	public get getLevel(): number {
 		return this.level;

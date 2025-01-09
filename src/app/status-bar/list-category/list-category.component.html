@@ -51,8 +51,8 @@
 
     ">
 
-    <li *ngFor="let item of getRooms">
-        <app-room-status />
+    <li *ngFor="let room of getRooms">
+        <app-room-status [room]="room" ></app-room-status>
     </li>
 
 </ul>

@@ -11,7 +11,6 @@
         relative
 
         grid
-        grid-rows-[auto_1fr]
 
         text-start
 
@@ -27,8 +26,10 @@
         border-light-300
         border-[1px]
         rounded-md
+
+        duration-100
         
-    ">
+    " [ngClass]="getRows">
 
     <div cdkDragHandle class="
 
@@ -57,12 +58,12 @@
 
         " [ngClass]="getBar">
         
-        <div class="border-l-2 pl-2.5 text-base border-light-200 content-center">DOOR CONTROLLER</div>
+        <div class="border-l-2 pl-2.5 text-base border-light-200 content-center line-clamp-1 truncate">DOOR CONTROLLER</div>
 
         <div class="flex">
-            <p class="pr-4 content-center">KITCHEN_02</p>
+            <p class="pr-4 content-center line-clamp-1 truncate">KITCHEN_02</p>
             <p class="border-r-2 border-light-200 pr-5 mr-4 content-center">
-                <span class="inline-block text-xs py-0.5 px-2.5 bg-gradient-to-br from-info-500/70 to bg-info-400/70 rounded-md">
+                <span class="line-clamp-1 truncate inline-block text-xs py-0.5 px-2.5 bg-gradient-to-br from-info-500/70 to bg-info-400/70 rounded-md">
                     LOCKED
                 </span>
             </p>

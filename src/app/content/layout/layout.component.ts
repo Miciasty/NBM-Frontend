@@ -1,11 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Panel } from 'src/app/interface/panel';
 import { LayoutService } from 'src/app/service/content/layout.service';
+
+import { 
+	trigger, 
+	transition, 
+	style, 
+	animate 
+  } from '@angular/animations';
 
 @Component({
   selector: 'c-grid-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss']
+  styleUrls: ['./layout.component.scss'],
+
+  animations: [
+    trigger('panelAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'scale(0.9)' }),
+        animate('75ms ease-out', 
+          style({ opacity: 1, transform: 'scale(1)' }))
+      ]),
+    ])
+  ],
+
 })
 
 export class LayoutComponent {
@@ -31,5 +49,9 @@ export class LayoutComponent {
 	public clearPanels(): void {
 		this.layoutService.clearPanels();
 	}
+
+	trackByPanel(index: number, panel: Panel) {
+		return panel.id || index;
+	  }
 
 }
