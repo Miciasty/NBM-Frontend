@@ -1,30 +1,35 @@
 import { Component } from '@angular/core';
+import { Panel } from 'src/app/interface/panel';
+import { LayoutService } from 'src/app/service/content/layout.service';
 
 @Component({
   selector: 'c-grid-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
+
 export class LayoutComponent {
 
-	private panels = [
-		
-		{ id: 4, classes: 'row-span-6 col-span-3' },
-		{ id: 1, classes: 'row-span-2 col-span-2' },
-		{ id: 3, classes: 'row-span-4 col-span-2' },
-	]
+	private panels: Panel[] = []
+
+	constructor( private layoutService: LayoutService) {}
+
+	ngOnInit() {
+		this.layoutService.panels$.subscribe(newPanels => {
+			this.panels = newPanels;
+		})
+	}
 
 	public get getPanels() {
 		return this.panels;
 	}
 
-	public removePanel(id: number): void {
+	public removePanel(id: string): void {
 		this.panels = this.panels.filter(panel => panel.id !== id);
 	}
 
-	public addPanel(): void {
-		const nid = this.panels.length ? Math.max(...this.panels.map(p => p.id)) + 1 : 1;
-		this.panels.push({ id: nid, classes: 'row-span-2 col-span-2'});
+	public clearPanels(): void {
+		this.layoutService.clearPanels();
 	}
 
 }

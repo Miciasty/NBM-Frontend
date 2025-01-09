@@ -6,7 +6,7 @@
     relative
 
     grid
-    grid-cols-5
+    grid-cols-9
     grid-rows-6
 
     gap-4
@@ -25,7 +25,17 @@
     <app-panel
         *ngFor="let p of getPanels"
         [ngClass]="p.classes"
-        (closed)="removePanel(p.id)">
-    </app-panel>
+        [setType]="p.id"
+        [isBar]="p.isBar"
+
+        (closed)="removePanel(p.id)"
+    ></app-panel>
+
+    <!--<app-panel setType="energy" ngClass="col-span-3 row-span-2" [isBar]="false" />
+
+    <app-panel setType="water" ngClass="col-span-3 row-span-2" [isBar]="false" />
+
+    <app-panel setType="air" ngClass="col-span-3 row-span-2" [isBar]="false" />-->
+
 
 </div>

@@ -17,6 +17,9 @@ import { PanelComponent } from './content/layout/panel/panel.component';
 import { TerminalComponent } from './content/layout/panel/widgets/terminal/terminal.component';
 import { ButtonComponent } from './content/layout/panel/widgets/button/button.component';
 import { EventComponent } from './content/layout/panel/widgets/event/event.component';
+import { QualityGraphComponent } from './content/layout/panel/widgets/quality-graph/quality-graph.component';
+import { UsageGraphComponent } from './content/layout/panel/widgets/usage-graph/usage-graph.component';
+import { CategoryButtonComponent } from './content/layout/panel/widgets/category-button/category-button.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { EventComponent } from './content/layout/panel/widgets/event/event.compo
     TerminalComponent,
     ButtonComponent,
     EventComponent,
+    QualityGraphComponent,
+    UsageGraphComponent,
+    CategoryButtonComponent,
   ],
   imports: [
     BrowserModule,

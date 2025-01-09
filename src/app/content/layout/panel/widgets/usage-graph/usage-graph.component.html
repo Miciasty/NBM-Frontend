@@ -1,0 +1,132 @@
+
+<!--    MOBILE / DEFAULT        SM MIN 640 PX           MD MIN 768 PX           LG MIN 1024 PX          XL MIN 1280 PX          2XL MIN 1536 PX -->
+
+<div class="
+
+        relative
+
+        w-full
+        h-full
+
+        grid
+        grid-rows-[1fr_auto]
+
+        rounded-b-md
+
+        overflow-hidden
+
+        p-6
+
+        text-light-200/60
+
+        gap-divide-y-5
+
+        gap-divide-light-300
+
+    ">
+
+    <div class="
+    
+        grid
+        grid-rows-[auto_1fr]
+
+
+        w-full
+        h-auto
+
+        gap-y-4
+    
+    ">
+    
+        <h2 class="
+        
+            font-light
+            text-lg
+            leading-4
+
+            text-light-100
+        
+        "> {{getTitle}} </h2>
+
+        <div class="
+
+            grid
+            grid-cols-2
+
+            gap-x-8
+
+            content-end
+        
+        ">
+            <div *ngFor="let metric of getPrimaryMetrics">
+                <div class="
+
+                    w-full
+
+                    flex
+
+                    gap-x-3
+
+                    ml-[-2px] 
+
+                    text-[64px] 
+                    leading-[64px] 
+
+                    text-light-100 
+                    font-chakra
+
+                    truncate
+                ">
+                    <span class="font-medium bg-gradient-to-br inline-block text-transparent bg-clip-text" [ngClass]="getGradient">
+                        {{metric.value}}
+                    </span>
+                    <span class="text-[32px] leading-[44px] content-end font-normal tracking-wider">
+                        {{metric.unit}}
+                    </span>
+                    
+                </div>
+
+                <div class="text-base leading-7">
+                    {{metric.description}}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="
+
+        w-full
+    
+        grid
+        grid-cols-3
+
+        gap-4
+
+        overflow-hidden
+
+        
+    
+    ">
+    
+        <div *ngFor="let metric of getSecondaryMetrics" class="w-full truncate ">
+            <div class="flex gap-x-2 text-2xl text-light-100 font-chakra">
+                <span class="font-medium">
+                    {{metric.value}}
+                </span>
+                <span class="text-base leading-[26px] content-end tracking-wider">
+                    {{metric.unit}}
+                </span>
+            </div>
+            <div class="text-sm">
+                {{metric.description}}
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

@@ -55,7 +55,7 @@
 
         rounded-t-md
 
-        ">
+        " [ngClass]="getBar">
         
         <div class="border-l-2 pl-2.5 text-base border-light-200 content-center">DOOR CONTROLLER</div>
 
@@ -76,6 +76,6 @@
 
     </div>
 
-    <widget-terminal class="overflow-hidden" />
+    <div #widget class="overflow-hidden"></div>
 
 </div>

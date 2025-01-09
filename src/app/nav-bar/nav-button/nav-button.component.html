@@ -26,9 +26,9 @@
 
         cursor-pointer
     
-    ">
+    " (click)="onButtonClick()" >
 
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+    <svg xmlns="http://www.w3.org/2000/svg" [attr.viewBox]="getViewbox" fill="currentColor" class="size-6">
         <path fill-rule="evenodd" [attr.d]="getValue" clip-rule="evenodd"/>
         <path fill-rule="evenodd" [attr.d]="getValue2" clip-rule="evenodd"/>
     </svg>
