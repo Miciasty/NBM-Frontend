@@ -54,7 +54,18 @@
             background-position: 20px 0px;
         "></div>
 
-        <widget-event setStatus="success" setValue="Door Opened" setTime="12:14" setDate="24 May 2024"/>
+        <widget-event
+
+            *ngFor="let event of events"
+
+            [setStatus]="event.status"
+            [setPrefix]="event.prefix"
+            [setValue]="event.value"
+            [setDate]="event.date">
+
+        </widget-event>
+
+        <!--<widget-event setStatus="success" setValue="Door Opened" setTime="12:14" setDate="24 May 2024"/>
 
         <widget-event setStatus="error" setPrefix="High trafiic:" setValue="477 events in the last 8 seconds" setTime="13:42" setDate="24 May 2024" />
 
@@ -62,9 +73,11 @@
 
         <widget-event setStatus="warning" setValue="Forced Close activated by Administrator" setTime="18:10" setDate="24 May 2024" />
 
-        <widget-event setStatus="error" setValue="Lockdown starts in 2 seconds" setTime="18:12" setDate="24 May 2024" />
+        <widget-event setStatus="error" setValue="Lockdown starts in 2 seconds" setTime="18:12" setDate="24 May 2024" />-->
     
     </div>
+
+    <!-- -- -- -- -- -->
 
     <div class="
 
@@ -106,13 +119,13 @@
 
         <div class="w-full flex flex-wrap gap-2.5">
             <div class="w-full grid grid-cols-2 gap-2.5 text-center">
-                <widget-button value="OPEN" gradient="bg-gradient-to-br from-light-300/40 to-light-300/40 hover:to-success-400/70"/>
+                <widget-button (click)="status(0)" [status]="currentRoom?.status === 0" value="OPEN" (click)="triggerEvent('success', '', 'Door Opened')" />
     
-                <widget-button value="CLOSE" gradient="bg-gradient-to-br from-light-300/40 to-light-300/40 hover:to-success-400/70"/>
+                <widget-button (click)="status(1)" [status]="currentRoom?.status === 1" value="CLOSE" (click)="triggerEvent('success', '', 'Door Closed')" />
 
-                <widget-button value="UNLOCK" gradient="bg-gradient-to-br from-light-300/40 to-light-300/40 hover:to-info-400/70"/>
+                <widget-button (click)="status(2)" [status]="currentRoom?.status === 2" value="UNLOCK" (click)="triggerEvent('info', '', 'Door Unlocked')" />
     
-                <widget-button value="LOCK" gradient="bg-gradient-to-br from-info-500 to-info-400 hover:to-info-400/70"/>
+                <widget-button (click)="status(3)" [status]="currentRoom?.status === 3" value="LOCK" (click)="triggerEvent('info', '', 'Door Locked')" />
             </div>
         </div>
 
@@ -132,25 +145,23 @@
         </div>
 
         <div class="w-full flex flex-wrap gap-2.5">
-            <div class="w-full grid grid-cols-2 gap-2.5 text-center">
-                <widget-button value="Add" gradient="bg-gradient-to-br from-light-300/40 to-light-300/40 hover:to-light-200/15"/>
-    
-                <widget-button value="Delete" gradient="bg-gradient-to-br from-light-300/40 to-light-300/40 hover:to-light-200/15"/>
+            <div class="w-full text-center">
+                <widget-button (click)="openAccessManager()" value="ACCESS" gradient="bg-gradient-to-br from-light-300/40 to-light-300/40 hover:to-light-200/15"/>
             </div>
         </div>
 
         <div class="w-full flex flex-wrap gap-2.5">
             <div class="w-full text-center">
-                <widget-button value="RESET ALARM" gradient="bg-gradient-to-br from-error-500 to-error-400 hover:to-error-400/70"/>
+                <widget-button (click)="resetAlarm()" value="RESET ALARM" gradient="bg-gradient-to-br from-error-500 to-error-400 hover:to-error-400/70" (click)="triggerEvent('warning', 'Forced:', 'Alarm reset')"/>
             </div>
             <div class="w-full text-center">
-                <widget-button value="LOCKDOWN" gradient="bg-gradient-to-br from-error-500 to-error-400 hover:to-error-400/70"/>
+                <widget-button (click)="toogleLockdown()" value="LOCKDOWN" gradient="bg-gradient-to-br from-error-500 to-error-400 hover:to-error-400/70" (click)="triggerEvent('error', 'Lockdown:', 'triggered by unknown user')"/>
             </div>
         </div>
 
         <div class="w-full flex flex-wrap gap-2.5">
             <div class="w-full text-center">
-                <widget-button value="MAINTANCE MODE" gradient="bg-gradient-to-br from-ascent to-secondary hover:to-secondary/70"/>
+                <widget-button (click)="toogleMaintance()" value="MAINTANCE MODE" gradient="bg-gradient-to-br from-ascent to-secondary hover:to-secondary/70" (click)="triggerEvent('default', '', 'Maintance mode has been triggered')"/>
             </div>
         </div>
     

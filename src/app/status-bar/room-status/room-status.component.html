@@ -30,19 +30,19 @@
         
     ">
 
-    <div class="text-light-100 cursor-pointer" (click)="onButtonClick()"> 
+    <div class="text-light-100 hover:text-warning-500 duration-100 cursor-pointer line-clamp-1 text-ellipsis" (click)="onButtonClick()"> 
         {{getRoomName}}
     </div>
 
-    <div class=" text-light-100 text-end ">
+    <div class=" text-light-100 text-end line-clamp-1 text-ellipsis">
         Level {{getLevel}}
     </div>
 
-    <div class="text-light-200">
+    <div class="text-light-200 line-clamp-1 text-ellipsis">
         Sector {{getSector}}
     </div>
 
-    <div class="text-end font-semibold text-success-500">
+    <div class="text-end font-semibold text-success-500 line-clamp-1 text-ellipsis">
         {{getConnection}}
     </div>
         

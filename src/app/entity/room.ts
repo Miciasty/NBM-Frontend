@@ -1,6 +1,9 @@
 import { Time } from "@angular/common";
+import { Event } from "./event";
 
 export class Room {
+
+    private _id: number;
 
     private _building: string;
     private _level: number;
@@ -15,18 +18,40 @@ export class Room {
     private _lockdown: boolean;
     private _maintance: boolean;
 
+    private events: Event[] = [];
+
     constructor(
+        id: number,
         b: string,    
         l: number,
         s: string,
         n:  string,
+        status: number,
     ) {
+        this._id = id;
         this._building   = b;    this._name           = n;    
-        this._level      = l;    this._status         = 1;   this._lockdown           = false;
-        this._sector     = s;                                 this._maintance          = false;
+        this._level      = l;    this._status         = status;     this._lockdown           = false;
+        this._sector     = s;                                       this._maintance          = false;
     }
 
-    // --- Gettery i Settery ---
+    // --- Events --- //
+
+    public getEvents(): Event[] {
+        return this.events;
+    }
+
+    public addEvent(e: Event): void {
+        this.events.push(e);
+    }
+
+    // --- Gettery i Settery --- //
+
+    public get id(): number {
+        return this._id;
+    }
+    public set id(value: number) {
+        this._id = value;
+    }
 
     public get building(): string {
         return this._building;

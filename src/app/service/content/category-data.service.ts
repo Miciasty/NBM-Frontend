@@ -53,7 +53,7 @@ export class CategoryDataService {
 			color4: "#3b82f6",
 		  },
 		  panels: [
-			{ id: '', classes: 'row-span-2 col-span-4', isBar: true },
+			/*{ id: '', classes: 'row-span-2 col-span-4', isBar: true },*/
 		  ]
 		},
 		{
@@ -67,7 +67,8 @@ export class CategoryDataService {
 			color4: "#3b82f6",
 		  },
 		  panels: [
-			{ id: 'terminal', classes: 'row-span-6 col-span-6 lg:row-span-3 lg:col-span-5 xl:row-span-4 xl:col-span-4', isBar: true },
+			{ id: 'roommanager', classes: 'row-span-2 col-span-6 xl:col-span-4', isBar: false },
+			{ id: 'terminal', classes: 'row-start-3 row-span-4 col-span-6 lg:col-span-6 xl:col-span-4', isBar: true },
 		  ]
 		},
 		{
@@ -81,7 +82,7 @@ export class CategoryDataService {
 			color4: "#3b82f6",
 		  },
 		  panels: [
-			{ id: '', classes: 'row-span-2 col-span-3', isBar: true },
+			/*{ id: '', classes: 'row-span-2 col-span-4', isBar: true },*/
 		  ]
 		},
 		{
@@ -95,7 +96,7 @@ export class CategoryDataService {
 			color4: "#3b82f6",
 		  },
 		  panels: [
-			{ id: '', classes: 'row-span-2 col-span-3', isBar: true },
+			/*{ id: '', classes: 'row-span-2 col-span-4', isBar: true },*/
 		  ]
 		},
 		{
@@ -109,7 +110,7 @@ export class CategoryDataService {
 			color4: "#3b82f6",
 		  },
 		  panels: [
-			{ id: '', classes: 'row-span-2 col-span-3', isBar: true },
+			/*{ id: '', classes: 'row-span-2 col-span-4', isBar: true },*/
 		  ]
 		},
 		{
@@ -123,7 +124,7 @@ export class CategoryDataService {
 			color4: "#3b82f6",
 		  },
 		  panels: [
-			{ id: '', classes: 'row-span-2 col-span-3', isBar: true },
+			/*{ id: '', classes: 'row-span-2 col-span-4', isBar: true },*/
 		  ]
 		},
 		{
@@ -137,7 +138,7 @@ export class CategoryDataService {
 			color4: "#3b82f6",
 		  },
 		  panels: [
-			{ id: '', classes: 'row-span-2 col-span-3', isBar: true },
+			/*{ id: '', classes: 'row-span-2 col-span-4', isBar: true },*/
 		  ]
 		},
 	];

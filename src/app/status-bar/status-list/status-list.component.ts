@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Room } from 'src/app/entity/room';
 import { RoomService } from 'src/app/service/status-bar/room.service';
 
@@ -10,13 +11,21 @@ import { RoomService } from 'src/app/service/status-bar/room.service';
 export class StatusListComponent {
 
 	private groupedRooms: { level: number; rooms: Room[] }[] = [];
+	private roomsSubscription!: Subscription;
 
 	constructor(private roomService: RoomService) {}
 
 	ngOnInit(): void {
-		const allRooms = this.roomService.getRooms();
-		this.groupedRooms = this.groupByLevel(allRooms);
+		this.roomsSubscription = this.roomService.rooms$.subscribe(rooms => {
+            this.groupedRooms = this.groupByLevel(rooms);
+        });
 	}
+
+	ngOnDestroy(): void {
+        if (this.roomsSubscription) {
+            this.roomsSubscription.unsubscribe();
+        }
+    }
 
 	private groupByLevel(rooms: Room[]): { level: number; rooms: Room[] }[] {
 		const map = new Map<number, Room[]>();
@@ -35,22 +44,13 @@ export class StatusListComponent {
 	}
 
 	public addTestRoom(): void {
-		const testRoom = new Room('TestRoom', 10, 'E', "Roum_01");
+		const testRoom = new Room(999, 'TestRoom', 10, 'E', "Roum_01", 0);
 
 		this.roomService.addRoom(testRoom);
-
-		this.refreshGroupedRooms();
 	}
 
 	public removeRoomByName(roomName: string): void {
 		this.roomService.removeRoomByName(roomName);
-
-		this.refreshGroupedRooms();
-	}
-
-	private refreshGroupedRooms(): void {
-		const allRooms = this.roomService.getRooms();
-		this.groupedRooms = this.groupByLevel(allRooms);
 	}
   
 }

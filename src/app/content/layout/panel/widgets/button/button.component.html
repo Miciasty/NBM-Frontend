@@ -20,7 +20,9 @@
         transition-all
         cursor-pointer
 
-    " [ngClass]="gradient">
+        bg-gradient-to-br
+
+    " [ngClass]="getGradient()">
 
     {{value}}
 

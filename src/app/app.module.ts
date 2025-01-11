@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
@@ -21,6 +22,8 @@ import { QualityGraphComponent } from './content/layout/panel/widgets/quality-gr
 import { UsageGraphComponent } from './content/layout/panel/widgets/usage-graph/usage-graph.component';
 import { CategoryButtonComponent } from './content/layout/panel/widgets/category-button/category-button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AccessmanagerComponent } from './content/layout/panel/widgets/accessmanager/accessmanager.component';
+import { RoomManagerComponent } from './content/layout/panel/widgets/room-manager/room-manager.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +44,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     QualityGraphComponent,
     UsageGraphComponent,
     CategoryButtonComponent,
+    AccessmanagerComponent,
+    RoomManagerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DragDropModule,
     BrowserAnimationsModule, 
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

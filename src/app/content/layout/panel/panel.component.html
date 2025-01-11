@@ -61,10 +61,11 @@
         <div class="border-l-2 pl-2.5 text-base border-light-200 content-center line-clamp-1 truncate">DOOR CONTROLLER</div>
 
         <div class="flex">
-            <p class="pr-4 content-center line-clamp-1 truncate">KITCHEN_02</p>
-            <p class="border-r-2 border-light-200 pr-5 mr-4 content-center">
+            <p class="pr-4 content-center line-clamp-1 truncate">{{ currentRoom?.name || 'UNKNOWN' }}</p>
+
+            <p class="grid border-r-2 border-light-200 pr-5 mr-4 content-center">
                 <span class="line-clamp-1 truncate inline-block text-xs py-0.5 px-2.5 bg-gradient-to-br from-info-500/70 to bg-info-400/70 rounded-md">
-                    LOCKED
+                    {{ getRoomStatus(currentRoom?.status) }}
                 </span>
             </p>
 

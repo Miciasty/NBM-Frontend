@@ -1,3 +1,4 @@
+import { Time } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -53,12 +54,18 @@ export class EventComponent {
 		return this.gradient + " " + this.border;
 	}
 
-	@Input() public set setTime(v: string) {
-		this.time = v;
+	private to2Digits(num: number): string {
+		return num.toString().padStart(2, '0');
 	}
 
-	@Input() public set setDate(v: string) {
-		this.date = v;
+
+	@Input() public set setDate(v: Date) {
+		const monthNames = [
+			"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+			"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+		];
+
+		this.date = `${this.to2Digits(v.getHours())}:${this.to2Digits(v.getMinutes())} - ${this.to2Digits(v.getDate())} ${monthNames[v.getMonth()]} ${v.getFullYear()}`;
 	}
 
 	@Input() public set setValue(v: string) {

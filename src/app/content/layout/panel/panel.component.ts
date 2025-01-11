@@ -3,6 +3,11 @@ import { TerminalComponent } from './widgets/terminal/terminal.component';
 import { UsageGraphComponent } from './widgets/usage-graph/usage-graph.component';
 import { QualityGraphComponent } from './widgets/quality-graph/quality-graph.component';
 import { CategoryButtonComponent } from './widgets/category-button/category-button.component';
+import { Subscription } from 'rxjs';
+import { RoomService } from 'src/app/service/status-bar/room.service';
+import { Room } from 'src/app/entity/room';
+import { AccessmanagerComponent } from './widgets/accessmanager/accessmanager.component';
+import { RoomManagerComponent } from './widgets/room-manager/room-manager.component';
 
 @Component({
   selector: 'app-panel',
@@ -16,6 +21,9 @@ export class PanelComponent {
 	public onClose(): void {
 		this.closed.emit();
 	}
+
+	public currentRoom: Room | null = null;
+  	private sub: Subscription;
 
 	/** --- --- --- --- **/
 
@@ -69,10 +77,34 @@ export class PanelComponent {
 		map: CategoryButtonComponent,
 		access: CategoryButtonComponent,
 		alerts: CategoryButtonComponent,
-	  };
+		accessmanager: AccessmanagerComponent,
+		roommanager: RoomManagerComponent,
+	};
+
+	constructor(private roomService: RoomService) {}
 
 	ngOnInit() {
+
+		this.sub = this.roomService.selectedRoom$.subscribe(room => {
+			this.currentRoom = room;
+		});
+
 		this.loadComponent(this.type);
+	}
+
+	public getRoomStatus(status: number | undefined): string {
+		switch(status) {
+		  case 0:
+			return 'OPEN';
+		  case 1:
+			return 'CLOSE';
+		  case 2:
+			return 'UNLOCK';
+		  case 3:
+			return 'LOCK';
+		  default:
+			return 'UNKNOWN';
+		}
 	}
 
 	private loadComponent(type: string): void {
